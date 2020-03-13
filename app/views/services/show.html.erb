@@ -1,0 +1,65 @@
+<div class="site-wrap" id="home-section">
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <div class="ftco-blocks-cover-1">
+    <div class="ftco-cover-1 innerpage overlay" style="background-image:  url(<%= asset_path 'hom_1.jpg' %>)">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-6 text-center">
+            <span class="d-block mb-3 text-white" data-aos="fade-up">July 17, 2019 <span class="mx-2 text-primary">&bullet;</span> by James Miller</span>
+              <h1 class="mb-4" data-aos="fade-up" data-aos-delay="100"><%= @service.name %></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <div class="img-years">
+            <% if @service.image.attached? %>
+              <%= image_tag @service.image.variant(resize_to_limit: [540, 324]), class: "img-fluid" %>
+            <% else %>
+              <img src="<%= asset_path 'haircut1.jpg' %>" alt="Image" class="img-fluid">
+            <% end %>
+          </div>
+          <blockquote><p><%= @service.description %></p></blockquote>
+        </div>
+        <div class="col-md-6 sidebar">
+
+
+          <div class="sidebar-box">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <p class=" col-md-6 text-center">
+                  <%= link_to 'Appointment', new_appointment_path(service_id: @service), class:"btn btn-outline-primary" %>
+                  </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-box">
+            <div class="categories">
+              <h3>Categories</h3>
+              <li><a href="<%= products_path(category_id: 1) %>">Hair Treatment <span>(12)</span></a></li>
+              <li><a href="<%= products_path(category_id: 2) %>">Nail Treatment <span>(22)</span></a></li>
+              <li><a href="<%= products_path(category_id: 3) %>">Facials & Skin Care Treatment <span>(37)</span></a></li>
+              <li><a href="<%= products_path(category_id: 4) %>">Tattoo Treatment<span>(42)</span></a></li>
+              <li><a href="<%= products_path(category_id: 5) %>">Hair Removal <span>(14)</span></a></li>
+              <li><a href="<%= products_path(category_id: 6) %>">Massages <span>(14)</span></a></li>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

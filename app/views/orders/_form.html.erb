@@ -1,0 +1,58 @@
+<section class="ftco-section bg-light">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-6">
+								<br>
+									<img src="<%= asset_path 'haircut2.jpg' %>" alt="Image" class="img-fluid">
+            </div>
+						<br>
+						<div class="col-md-6">
+								<%= form_with(model: order, local: true) do |form| %>
+									<% @products.each do |product| %>
+										<input type="hidden" name="products[]", value="<%= product.id %>">
+									<% end %>
+									<% if order.errors.any? %>
+										<div id="error_explanation">
+											<h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+											<ul>
+												<% order.errors.full_messages.each do |message| %>
+													<li><%= message %></li>
+												<% end %>
+											</ul>
+										</div>
+									<% end %>
+									<br>
+									<div class="container">
+										<br>
+											<h2>Orders</h2>
+											<br>
+											<div class="field">
+												<%= form.label :shipping_address  %>
+												<%= form.text_field :shipping_address, class:"form-control" %>
+											</div>
+											<br>
+											<div class="field">
+												<%= form.label :payment_id %>
+												<%= form.text_field :payment_id, class:"form-control" %>
+											</div>
+											<br>
+											<div class="field">
+												<%= form.label :payment_mode %><br>
+												<%= form.select :payment_mode, options_for_select([['Cash'],['Cheque'], ['Cash Online']]), class: "form-control" %>
+											</div>
+											<br>
+											<div class="actions">
+												<button class="btn btn-success btn-lg" value="submit">Submit</button>
+												<!-- <button class="btn btn-success btn-lg"><%= link_to 'Back', orders_path %></button> -->
+											</div>
+										</div>
+									<% end %>
+						</div>
+					</div>
+  			</div>
+			</div>
+		</div>
+	<br>
+</section>

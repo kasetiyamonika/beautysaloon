@@ -1,0 +1,70 @@
+<section class="ftco-section bg-light">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+						<div class="col-md-6">
+								<br>
+									<img src="<%= asset_path 'haircut2.jpg' %>" alt="Image" class="img-fluid">
+            </div>
+						<br>
+						<div class="col-md-6">
+              <%= form_with(model: order_product, local: true) do |form| %>
+                <% if order_product.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(order_product.errors.count, "error") %> prohibited this order_product from being saved:</h2>
+
+                    <ul>
+                      <% order_product.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+                <br>
+                <div class="container">
+                  <br>
+                    <h2>Order product </h2>
+                    <br>
+                      <div class="field">
+                        <%= form.label :product_id %>
+                        <%= form.number_field :product_id, class:"form-control"  %>
+                      </div>
+
+                      <div class="field">
+                        <%= form.label :order_id %>
+                        <%= form.number_field :order_id, class:"form-control"  %>
+                      </div>
+
+                      <div class="field">
+                        <%= form.label :price %>
+                        <%= form.text_field :price, class:"form-control"  %>
+                      </div>
+
+                      <div class="field">
+                        <%= form.label :discount %>
+                        <%= form.text_field :discount, class:"form-control" %>
+                      </div>
+
+                      <!-- <div class="field">
+                        <%= form.label :discount_type %>
+                        <%= form.text_field :discount_type, class:"form-control" %>
+                      </div> -->
+
+                      <div class="field">
+                        <%= form.label :total %>
+                        <%= form.text_field :total, class:"form-control"  %>
+                      </div>
+											<br>
+                      <div class="actions">
+                        <button class="btn btn-success btn-lg"><%= link_to 'Order products create', orders_path %></button>
+                      </div>
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <br>
+      </section>

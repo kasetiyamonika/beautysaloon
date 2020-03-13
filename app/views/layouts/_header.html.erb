@@ -1,0 +1,68 @@
+<div class="site-wrap" id="home-section">
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <header class="site-navbar site-navbar-target" role="banner">
+    <div class="container">
+      <div class="row align-items-center position-relative">
+        <div class="col-3 ">
+          <div class="site-logo">
+            <a href="root_path"><%= t 'menu.bs' %></a>
+          </div>
+        </div>
+        <div class="col-9">
+          <span class="d-inline-block d-lg-none"><a href="#" class="text-white site-menu-toggle js-menu-toggle py-5 text-white"><span class="icon-menu h3 text-white"></span></a></span>
+          <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+            <ul class="site-menu main-menu js-clone-nav ml-auto menu"  id="nav">
+              <li><a href="/" class="nav-link"><%= t 'menu.home' %></a></li>
+              <li><a href="<%= services_path %>" class="nav-link"><%= t 'menu.services' %></a></li>
+              <li><a href="<%= products_path %>" class="nav-link"><%= t 'menu.products' %></a></li>
+              <li><a href="<%= abouts_path %>" class="nav-link"><%= t 'menu.about' %></a></li>
+              <li><a href="<%= blogs_path %>"  class="nav-link"><%= t 'menu.blog' %></a></li>
+              <li><a href="<%= contactus_path %>" class="nav-link"><%= t 'menu.contact_us' %></a></li>
+              <ul class="nav navbar-nav navbar-right">
+                <% if defined?(Devise) %>
+                  <% if user_signed_in? %>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><h2><%= current_user.email %></h2></a>
+                        <ul class="dropdown-menu">
+                          <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                          <li class="divider"></li>
+                          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                        </ul>
+                    </li>
+                  <% else %>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><h3>Account</h3></a>
+                        <ul class="dropdown-menu">
+                          <%= link_to "Sign In", new_user_session_path %>
+                          <li class="divider"></li>
+                          <%= link_to "Sign Up", new_user_registration_path %>
+                        </ul>
+                      </li>
+                    <% end %>
+                <% end %>
+              </ul>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<!-- <% content_for :js_code do %>
+  <script>
+       $(function() {
+          $('#nav li a').click(function() {
+             $('#nav li').removeClass();
+             $($(this).attr('href')).addClass('active');
+          });
+       });
+  </script>
+<% end %> -->

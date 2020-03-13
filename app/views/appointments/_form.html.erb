@@ -1,0 +1,56 @@
+<section class="ftco-section bg-light">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-6">
+								<br>
+									<img src="<%= asset_path 'haircut2.jpg' %>" alt="Image" class="img-fluid">
+						</div>
+						<br>
+						<div class="col-md-6">
+							<%= form_with(model: appointment, local: true) do |form| %>
+								<input type="hidden" name="appointment[service_id]", value="<%= @service.id %>">
+				        <% if appointment.errors.any? %>
+				          <div id="error_explanation">
+				            <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+				            <ul>
+				              <% appointment.errors.full_messages.each do |message| %>
+				                <li><%= message %></li>
+				              <% end %>
+				            </ul>
+				          </div>
+				        <% end %>
+				        <div class="container">
+									<br>
+			           	<h2>Appointments</h2>
+									<br>
+
+				          <div class="field">
+				            <%= form.label :payment_id %>
+				            <%= form.text_field :payment_id, class:"form-control" %>
+				          </div>
+				          <br>
+				          <div class="field">
+				            <%= form.label :payment_mode %><br>
+				            <%= form.select :payment_mode, options_for_select([['Cash'],['Cheque'], ['Cash Online']]), class: "form-control" %>
+				          </div>
+				          <br>
+        					<div class="field">
+			            <%= form.label :remark %>
+			            <%= form.text_area :remark, class: "form-control" %>
+			          </div>
+								<br>
+								<div class="actions">
+ 								 <button class="btn btn-success btn-lg" value="submit">Submit</button>
+ 							 </div>
+			        </div>
+      		<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+</section>

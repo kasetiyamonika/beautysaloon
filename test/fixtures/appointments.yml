@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  service: one
+  payment_id: MyString
+  payment_mode: MyString
+  price: 9.99
+  start_time: 2020-01-22 11:12:39
+  end_time: 2020-01-22 11:12:39
+  status: MyString
+  remark: MyText
+
+two:
+  user: two
+  service: two
+  payment_id: MyString
+  payment_mode: MyString
+  price: 9.99
+  start_time: 2020-01-22 11:12:39
+  end_time: 2020-01-22 11:12:39
+  status: MyString
+  remark: MyText

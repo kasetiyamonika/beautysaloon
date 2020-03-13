@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  payment_id: MyString
+  payment_mode: MyString
+  date_time: 2020-01-22 11:10:58
+  total: 9.99
+  status: MyString
+
+two:
+  user: two
+  payment_id: MyString
+  payment_mode: MyString
+  date_time: 2020-01-22 11:10:58
+  total: 9.99
+  status: MyString
