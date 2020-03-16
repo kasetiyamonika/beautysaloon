@@ -24,6 +24,8 @@ gem 'devise'
 
 gem 'activeadmin'
 
+gem 'uglifier', '>= 1.3.0'
+
 gem 'jquery-rails'
 
 gem 'sidekiq'
