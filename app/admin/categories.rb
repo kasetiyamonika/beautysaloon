@@ -6,6 +6,15 @@ ActiveAdmin.register Category do
   # Uncomment all parameters which should be permitted for assignment
   #
   permit_params :name
+
+  form do |f|
+   f.semantic_errors # shows errors on :base
+   f.inputs do
+     # f.select :category
+     f.input :name
+     f.actions
+   end
+ end
   #
   # or
   #
